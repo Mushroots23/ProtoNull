@@ -22,7 +22,6 @@ class FrameLoader:
         next_folder = folder
         if os.path.isdir(next_folder):
             self.load_frames(next_folder)
-            # Reset frame index when switching folders
         else:
             print(f"Folder '{folder}' does not exist.")
 
@@ -43,7 +42,6 @@ if __name__ == "__main__":
     screen_width = 960
     screen_height = 540
 
-    # Initialize Pygame
     pg.init()
     screen = pg.display.set_mode((screen_width, screen_height))
     clock = pg.time.Clock()
@@ -52,7 +50,7 @@ if __name__ == "__main__":
     loader = FrameLoader(base_path)
     loader.load_frames(base_path + "slot1")  # Load frames from the initial folder
 
-    alpha = 255  # Example alpha value
+    alpha = 255
 
     running = True
     while running:

@@ -14,9 +14,9 @@ class Circle:
         self.x += self.speed_x
         self.y += self.speed_y
         if self.x + radius >= self.screen_width or self.x - radius <= 0:
-            self.speed_x *= -1  # Add randomness to speed_x
+            self.speed_x *= -1
         if self.y + radius >= self.screen_height or self.y - radius <= 0:
-            self.speed_y *= -1  # Add randomness to speed_y
+            self.speed_y *= -1
 
         # Adjust behavior for fullscreen mode
         if fullscreen:
@@ -33,12 +33,11 @@ class Circle:
             pg.draw.circle(surface, color1, (self.screen_width / 2, self.screen_height / 2), radius * 16)
             pg.draw.circle(surface, color2, (self.screen_width / 2, self.screen_height / 2), radius * 15)
 
-# Example usage in your main loop:
+# Example usage:
 if __name__ == "__main__":
     screen_width = 960
     screen_height = 540
 
-    # Initialize Pygame
     pg.init()
     screen = pg.display.set_mode((screen_width, screen_height))
     clock = pg.time.Clock()
@@ -61,7 +60,7 @@ if __name__ == "__main__":
             if event.type == pg.QUIT:
                 running = False
 
-        screen.fill((0, 0, 0))  # Fill the screen with black
+        screen.fill((0, 0, 0))
 
         circle.update_position(circle_radius, fullscreen)
         circle.draw(screen, circle_color1, circle_color2, circle_radius, is_circle)
